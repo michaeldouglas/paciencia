@@ -20,11 +20,19 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File .\build.ps1 -NoRaylib
 
 O binário é gerado em `build/paciencia.exe`.
 
+Opcional (VS Code): use as tasks "Build (console)" ou "Build (raylib)" já configuradas.
+
 ## Como executar
 
 ```powershell
 ./build/paciencia.exe
 ```
+
+### Estado inicial e baralho completo
+
+- Ao iniciar, a Fila1 contém 5 cartas de exemplo apenas para visualização rápida.
+- Para trabalhar com o baralho completo (52 cartas), use a opção 7 do menu ("Criar baralho ordenado") e, se desejar, a 16 ("Embaralhar iterativo") antes de ordenar (10/11/12).
+- As opções de ordenação e embaralhamento atuam sobre o baralho em memória; se ele estiver vazio, o programa captura o conteúdo atual da Fila1 e então aplica a operação.
 
 ### Uso no console (menu)
 
@@ -41,8 +49,22 @@ O binário é gerado em `build/paciencia.exe`.
 - 13: (M1) Validado Fila → Lista
 - 14: (M2) Validado Pilha → Lista
 - 15: (M3) Validado Lista1 → Lista2 (solicita posição)
+- 16: Embaralhar iterativo (1000 trocas) e recarregar Fila1
+- 17: Rodar testes automáticos (recursão/ordenação/pilha/listas)
+- 0: Sair
 
 Obs.: No Windows o programa ajusta UTF-8 automaticamente (símbolos dos naipes).
+
+### Testes automáticos
+
+Para validar recursão, ordenações, regras de pilha e listas:
+
+```powershell
+./build/paciencia.exe
+# no menu, digite: 17
+```
+
+O programa imprimirá o resultado esperado como "OK" para cada categoria de teste.
 
 ### Uso no modo Raylib (janela)
 
