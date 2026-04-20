@@ -1,4 +1,4 @@
-# paciencia
+# Paciência jogo
 
 Jogo Paciência para estudo de Estruturas de Dados (pilha, fila e lista ligada), com modo console (ASCII) e opção 2D via Raylib.
 
