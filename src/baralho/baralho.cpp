@@ -42,3 +42,19 @@ void embaralharRecursivo(std::vector<Carta> &baralho)
     std::mt19937 rng(seed);
     embaralharRec(baralho, (int)baralho.size() - 1, rng);
 }
+
+void embaralharMilTrocas(std::vector<Carta> &baralho)
+{
+    if (baralho.empty())
+        return;
+    unsigned seed = (unsigned)std::chrono::high_resolution_clock::now().time_since_epoch().count();
+    std::mt19937 rng(seed);
+    std::uniform_int_distribution<int> dist(0, (int)baralho.size() - 1);
+    for (int k = 0; k < 1000; ++k)
+    {
+        int i = dist(rng);
+        int j = dist(rng);
+        if (i != j)
+            std::swap(baralho[i], baralho[j]);
+    }
+}

@@ -1,10 +1,28 @@
 #include "ordenacao.h"
 #include <algorithm>
 
+static inline int suitRank(char n)
+{
+    // Ordem definida pelo baralho ordenado: 'c', 'o', 'p', 'e'
+    switch (n)
+    {
+    case 'c':
+        return 0; // copas (♥)
+    case 'o':
+        return 1; // ouros (♦)
+    case 'p':
+        return 2; // paus (♣)
+    case 'e':
+        return 3; // espadas (♠)
+    default:
+        return 4;
+    }
+}
+
 static inline int key(const Carta &c)
 {
-    // Ordena por numero e, em empate, por naipe
-    return c.numero * 10 + (int)(unsigned char)c.naipe;
+    // Ordena por naipe (na ordem acima) e, em empate, por numero
+    return suitRank(c.naipe) * 100 + c.numero;
 }
 
 void bubbleSortCartas(std::vector<Carta> &v)

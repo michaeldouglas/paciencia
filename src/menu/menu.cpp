@@ -27,6 +27,8 @@ int menu()
     cout << "13 - Validado: Fila -> Lista (M1)\n";
     cout << "14 - Validado: Pilha -> Lista (M2)\n";
     cout << "15 - Validado: Lista1 -> Lista2 (M3)\n";
+    cout << "16 - Embaralhar iterativo (1000 trocas) e recarregar Fila1\n";
+    cout << "17 - Rodar testes automáticos (recursão/ordenação/pilha/listas)\n";
     cout << "0 - Sair\n";
     cout << "Escolha: ";
     string line;

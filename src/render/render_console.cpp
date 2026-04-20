@@ -133,3 +133,21 @@ void mostrarLista(const Lista &l)
     }
     renderCardsBoxes(v);
 }
+
+void mostrarPilhas(const Pilha pilhas[], int n)
+{
+    for (int i = 0; i < n; ++i)
+    {
+        cout << "Pilha " << (i + 1) << ":\n";
+        mostrarPilha(pilhas[i]);
+    }
+}
+
+void mostrarListas(const Lista listas[], int n)
+{
+    for (int i = 0; i < n; ++i)
+    {
+        cout << "Lista " << (i + 1) << ":\n";
+        mostrarLista(listas[i]);
+    }
+}

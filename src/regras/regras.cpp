@@ -32,8 +32,8 @@ bool M1_verifica(const Lista &lista, const Fila &fila)
 {
     if (fila.qtd == 0)
         return false;
-    int idx = fila.fim == 0 ? (CAP - 1) : (fila.fim - 1); // último enfileirado
-    Carta c = fila.dados[idx];
+    // Verifica a carta da frente da fila (próxima a sair)
+    Carta c = fila.dados[fila.ini];
     return podeEmpilharEmLista(lista, c);
 }
 
@@ -116,4 +116,19 @@ void M3_aplica(Lista &destino, Lista &origem, int pos)
     while (tail->prox)
         tail = tail->prox;
     tail->prox = start;
+}
+
+bool podeEmpilharEmPilha(const Pilha &pilha, const Carta &c)
+{
+    if (!c.status || c.numero <= 0)
+        return false;
+    // Pilha vazia: somente Ás
+    if (pilha.topo < 0)
+        return c.numero == 1;
+    Carta topo = pilha.dados[pilha.topo];
+    if (!topo.status || topo.numero <= 0)
+        return c.numero == 1;
+    bool mesmoNaipe = (topo.naipe == c.naipe);
+    bool asc = (c.numero == topo.numero + 1);
+    return mesmoNaipe && asc;
 }
