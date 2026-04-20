@@ -1,0 +1,97 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build (console)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-Isrc",
+        "main.cpp",
+        "src/menu/menu.cpp",
+        "src/fila/fila.cpp",
+        "src/pilha/pilha.cpp",
+        "src/lista/lista.cpp",
+        "src/baralho/baralho.cpp",
+        "src/ordenacao/ordenacao.cpp",
+        "src/regras/regras.cpp",
+        "src/render/render_console.cpp",
+        "src/graphics/graphics.cpp",
+        "-o",
+        "build/paciencia_console.exe"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (script - raylib)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".\\build.ps1"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (script - no raylib)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".\\build.ps1",
+        "-NoRaylib"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (raylib)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-DUSE_RAYLIB",
+        "-Isrc",
+        "-I",
+        "C:/msys64/ucrt64/include",
+        "main.cpp",
+        "src/menu/menu.cpp",
+        "src/fila/fila.cpp",
+        "src/pilha/pilha.cpp",
+        "src/lista/lista.cpp",
+        "src/baralho/baralho.cpp",
+        "src/ordenacao/ordenacao.cpp",
+        "src/regras/regras.cpp",
+        "src/render/render_console.cpp",
+        "src/graphics/graphics.cpp",
+        "-L",
+        "C:/msys64/ucrt64/lib",
+        "-lraylib",
+        "-lopengl32",
+        "-lgdi32",
+        "-lwinmm",
+        "-o",
+        "build/paciencia_ray.exe"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
