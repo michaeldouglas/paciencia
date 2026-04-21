@@ -2,6 +2,8 @@
 
 Jogo Paciência para estudo de Estruturas de Dados (pilha, fila e lista ligada), com modo console (ASCII) e opção 2D via Raylib.
 
+<img src="jogo.png" alt="Jogo resolvido">
+
 ## Como compilar
 
 - Pré-requisito (apenas para Raylib): headers/libs presentes no MSYS2 `ucrt64` (padrão do script). Caso não tenha Raylib instalado, use o modo somente console (`-NoRaylib`).
