@@ -22,7 +22,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
+*.log
 
 # Fortran module files
 *.mod
